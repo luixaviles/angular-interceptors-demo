@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { MoviesModule } from './movies/movies.module';
 
+import { httpInterceptorProviders } from './shared/interceptors';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -18,7 +20,9 @@ import { MoviesModule } from './movies/movies.module';
     SharedModule,
     MoviesModule
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
