@@ -1,3 +1,13 @@
-<p>
-  movies-list works!
-</p>
+<div class="card-container">
+<mat-card class="card-content" *ngFor="let movie of movies$ | async">
+    <img mat-card-image *ngIf="movie.pictureURL" [src]="movie.pictureURL">
+    <img mat-card-image *ngIf="!movie.pictureURL" src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png">
+  <mat-card-content>
+      <h3>
+          {{movie.title}}
+      </h3>
+      <p> {{movie.overview}}</p>
+      <p> {{movie.id}}</p>
+  </mat-card-content>
+</mat-card>
+</div>

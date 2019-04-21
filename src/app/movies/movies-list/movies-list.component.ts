@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../shared/model/movie';
+import { MovieService } from '../shared/services/movie.service';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-movies-list',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesListComponent implements OnInit {
 
-  constructor() { }
+  private unsubscribe$ = new Subject<void>();
+  movies$: Observable<Movie[]>;
 
-  ngOnInit() {
+  constructor(private movieService: MovieService) {
   }
 
+  ngOnInit() {
+    this.movies$ = this.movieService.getMovies().pipe(takeUntil(this.unsubscribe$));
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }
