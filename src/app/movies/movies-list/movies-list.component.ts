@@ -12,7 +12,7 @@ import { takeUntil } from 'rxjs/operators';
 export class MoviesListComponent implements OnInit {
 
   private unsubscribe$ = new Subject<void>();
-  movies$: Observable<Movie[]>;
+  movies$?: Observable<Movie[]>;
 
   constructor(private movieService: MovieService) {
   }

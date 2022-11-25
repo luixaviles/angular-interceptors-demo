@@ -13,7 +13,6 @@ const PICTURE_URL = 'https://image.tmdb.org/t/p/w500';
 })
 export class MovieService {
 
-  movies: Movie[];
 
   constructor(private httpClient: HttpClient) { }
 
@@ -30,7 +29,7 @@ export class MovieService {
     );
   }
 
-  getPictureURL(posterPath: string): string {
+  getPictureURL(posterPath: string | undefined): string | undefined {
     if (!posterPath) {
       return undefined;
     }

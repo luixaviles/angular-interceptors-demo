@@ -2,12 +2,16 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
       <a mat-list-item href="https://twitter.com/luixaviles" target="_blank">
-        <mat-icon mat-list-icon>person</mat-icon>
-        <span mat-line>Author</span>
+        <mat-icon matListItemIcon>person</mat-icon>
+        <span matListItemTitle>Author</span>
       </a>
-      <a mat-list-item href="https://github.com/luixaviles/angular-interceptors" target="_blank">
-        <mat-icon mat-list-icon>code</mat-icon>
-        <span mat-line>Source Code</span>
+      <a
+        mat-list-item
+        href="https://github.com/luixaviles/angular-interceptors-demo"
+        target="_blank"
+      >
+        <mat-icon matListItemIcon>code</mat-icon>
+        <span matListItemTitle>Source Code</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
@@ -17,24 +21,32 @@
       <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Popular Movies | Angular Interceptors</span>
-
+      <span>Popular Movies | Angular Interceptors Demo</span>
     </mat-toolbar>
   </div>
 
   <nav>
     <a>
-      <button mat-button color="primary" class="home-button" [routerLink]="'/movies'">
+      <button
+        mat-button
+        color="primary"
+        class="home-button"
+        [routerLink]="'/movies'"
+      >
         Movies
       </button>
     </a>
     <a>
-      <button mat-button color="primary" class="home-button" [routerLink]="'/about'">
+      <button
+        mat-button
+        color="primary"
+        class="home-button"
+        [routerLink]="'/about'"
+      >
         About
       </button>
     </a>
   </nav>
 
   <router-outlet></router-outlet>
-
 </mat-sidenav-container>

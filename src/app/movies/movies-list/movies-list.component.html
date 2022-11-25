@@ -6,8 +6,7 @@
       <h3>
           {{movie.title}}
       </h3>
-      <p> {{movie.overview}}</p>
-      <p> {{movie.id}}</p>
+      <p> {{ (movie.overview.length > 200)? ((movie.overview | slice:0:200 ) + '...') : movie.overview }}</p>
   </mat-card-content>
 </mat-card>
 </div>
